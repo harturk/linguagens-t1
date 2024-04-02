@@ -13,6 +13,7 @@ public class AnalisadorLexicoTeste {
         AnalisadorLexico lexical = new AnalisadorLexico(new StringReader(expr));
         lexical.yylex();
 
+     
     }
 
 }

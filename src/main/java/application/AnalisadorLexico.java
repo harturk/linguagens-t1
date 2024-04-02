@@ -60,8 +60,9 @@ class AnalisadorLexico {
     private static final int[] ZZ_CMAP_BLOCKS = zzUnpackcmap_blocks();
 
     private static final String ZZ_CMAP_BLOCKS_PACKED_0 = "\11\0\2\1\2\2\1\1\32\0\1\3\1\4\1\5" +
-            "\1\6\1\0\1\7\1\10\1\11\12\12\44\0\1\13" +
-            "\35\0\1\1\10\0\1\2\u01a2\0\2\2\326\0\u0100\2";
+            "\1\6\1\0\1\7\1\10\1\11\12\12\3\0\1\13" +
+            "\3\0\32\14\3\0\1\15\2\0\32\14\1\0\1\1" +
+            "\10\0\1\2\u01a2\0\2\2\326\0\u0100\2";
 
     private static int[] zzUnpackcmap_blocks() {
         int[] result = new int[1024];
@@ -90,10 +91,10 @@ class AnalisadorLexico {
     private static final int[] ZZ_ACTION = zzUnpackAction();
 
     private static final String ZZ_ACTION_PACKED_0 = "\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7" +
-            "\1\10\1\11\2\0\1\12\1\13";
+            "\1\10\1\11\1\12\1\13\2\0\1\14\1\15";
 
     private static int[] zzUnpackAction() {
-        int[] result = new int[14];
+        int[] result = new int[16];
         int offset = 0;
         offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
         return result;
@@ -118,11 +119,11 @@ class AnalisadorLexico {
      */
     private static final int[] ZZ_ROWMAP = zzUnpackRowMap();
 
-    private static final String ZZ_ROWMAP_PACKED_0 = "\0\0\0\14\0\14\0\14\0\14\0\14\0\14\0\14" +
-            "\0\14\0\30\0\44\0\60\0\44\0\60";
+    private static final String ZZ_ROWMAP_PACKED_0 = "\0\0\0\16\0\16\0\16\0\16\0\16\0\16\0\16" +
+            "\0\16\0\34\0\16\0\16\0\52\0\70\0\52\0\70";
 
     private static int[] zzUnpackRowMap() {
-        int[] result = new int[14];
+        int[] result = new int[16];
         int offset = 0;
         offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
         return result;
@@ -145,11 +146,12 @@ class AnalisadorLexico {
     private static final int[] ZZ_TRANS = zzUnpacktrans();
 
     private static final String ZZ_TRANS_PACKED_0 = "\1\2\1\3\1\0\1\4\1\5\1\6\1\7\1\10" +
-            "\1\2\1\11\1\12\1\2\24\0\1\13\1\0\1\12" +
-            "\1\14\12\0\1\15\13\0\1\16\1\0";
+            "\1\2\1\11\1\12\1\13\1\14\1\2\26\0\1\15" +
+            "\1\0\1\12\2\0\1\16\12\0\1\17\15\0\1\20" +
+            "\3\0";
 
     private static int[] zzUnpacktrans() {
-        int[] result = new int[60];
+        int[] result = new int[70];
         int offset = 0;
         offset = zzUnpacktrans(ZZ_TRANS_PACKED_0, offset, result);
         return result;
@@ -192,10 +194,10 @@ class AnalisadorLexico {
      */
     private static final int[] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
-    private static final String ZZ_ATTRIBUTE_PACKED_0 = "\1\0\10\11\1\1\2\0\2\1";
+    private static final String ZZ_ATTRIBUTE_PACKED_0 = "\1\0\10\11\1\1\2\11\2\0\2\1";
 
     private static int[] zzUnpackAttribute() {
-        int[] result = new int[14];
+        int[] result = new int[16];
         int offset = 0;
         offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
         return result;
@@ -641,76 +643,88 @@ class AnalisadorLexico {
                 zzAtEOF = true;
                 {
                     System.out.println("Fim do arquivo alcançado.");
-                    yyclose(); // Fecha o scanner
-                    return; // Finaliza o método yylex()
+                    yyclose();
+                    return;
                 }
             } else {
                 switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
-                    case 1: {
-                        // throw new RuntimeException("Caractere invalido" + yytext());
-                    }
-                    // fall through
-                    case 12:
-                        break;
-                    case 2: {
-                        imprimir("Espaco em branco ", yytext());
-                    }
-                    // fall through
-                    case 13:
-                        break;
-                    case 3: {
-                        imprimir("Parenteses a esquerda ", yytext());
-                    }
-                    // fall through
+                    case 1:
+                        // { throw new RuntimeException("Caractere invalido" + yytext());
+                        // }
+                        // fall through
                     case 14:
                         break;
-                    case 4: {
-                        imprimir("Parenteses a direita ", yytext());
+                    case 2: {
+                        imprimir("Next lexeme is: Espaco, Next token is: em branco ", yytext());
                     }
                     // fall through
                     case 15:
                         break;
-                    case 5: {
-                        imprimir("Operador de multiplicacao", yytext());
+                    case 3: {
+                        imprimir("Next lexeme is: (, Next token is: 25 ", yytext());
                     }
                     // fall through
                     case 16:
                         break;
-                    case 6: {
-                        imprimir("Operador de soma ", yytext());
+                    case 4: {
+                        imprimir("Next lexeme is: ), Next token is: 26 ", yytext());
                     }
                     // fall through
                     case 17:
                         break;
-                    case 7: {
-                        imprimir("Operador de subtracao", yytext());
+                    case 5: {
+                        imprimir("Next lexeme is: *, Next token is: 23", yytext());
                     }
                     // fall through
                     case 18:
                         break;
-                    case 8: {
-                        imprimir("Operador de divisao", yytext());
+                    case 6: {
+                        imprimir("Next lexeme is: +, Next token is: 21", yytext());
                     }
                     // fall through
                     case 19:
                         break;
-                    case 9: {
-                        imprimir("Numero inteiro ", yytext());
+                    case 7: {
+                        imprimir("Next lexeme is: -, Next token is: 22", yytext());
                     }
                     // fall through
                     case 20:
                         break;
-                    case 10: {
-                        imprimir("Numero decimal ", yytext());
+                    case 8: {
+                        imprimir("Next lexeme is: /, Next token is: 24", yytext());
                     }
                     // fall through
                     case 21:
                         break;
-                    case 11: {
-                        imprimir("Numero com Expoente ", yytext());
+                    case 9: {
+                        imprimir("Next lexeme is: INT_LIT, Next token is:  10", yytext());
                     }
                     // fall through
                     case 22:
+                        break;
+                    case 10: {
+                        imprimir("Next lexeme is: =, Next token is: 20", yytext());
+                    }
+                    // fall through
+                    case 23:
+                        break;
+                    case 11: {
+                        imprimir("Next lexeme is: LETTER, Next token is:  0", yytext());
+                    }
+                    // fall through
+                    case 24:
+                        break;
+                    case 12: {
+                        imprimir("Next lexeme is: DECIMAL, Next token is:  X", yytext());
+                    }
+                    // fall through
+                    case 25:
+                        break;
+                    case 13: {
+                        imprimir("Next lexeme is: ^, Next token is: X", yytext());
+                    }
+                    // fall through
+                    case 26:
                         break;
                     default:
                         zzScanError(ZZ_NO_MATCH);

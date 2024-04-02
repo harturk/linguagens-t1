@@ -13,36 +13,32 @@ package application;
 %type void
 
 BRANCO = [\n||\t|\r]
-SOMA = "+"
-SUBTRAI = "-"
-MULTI = "*"
-DIVID = "/"
+ADD_OP = "+"
+SUB_OP = "-"
+MULT_OP = "*"
+DIV_OP = "/"
+ASSIGN_OP = "="
 LEFT_PAREN = "("
 RIGHT_PAREN = ")"
 DIGITO = [0-9]
-INTEIRO = {DIGITO}+
-DECIMAL = {INTEIRO}"."{DIGITO}+
-NUMERO_EXPOENTE = {INTEIRO}"^"{DIGITO}+
+LETTER = [a-zA-Z]
+INT_LIT = {DIGITO}+
+DECIMAL = {INT_LIT}"."{DIGITO}+
+NUMERO_EXPOENTE = {INT_LIT}"^"{DIGITO}+
 %%
 
-"for"			{imprimir("FOR_PAL,20", yytext());}
-"if"			{imprimir("IF_PAL,21", yytext());}
-"else"			{imprimir("ELSE_PAL,22", yytext());}
-"while"         {imprimir("WHILE_PAL,23", yytext());}
-"do"            {imprimir("DO_PAL,24", yytext());}
-"int"           {imprimir("INT_PAL,25", yytext());}
-"float"         {imprimir("FLOAT_PAL,26", yytext());}
-"switch"        {imprimir("SWITCH_PAL,27", yytext());}
-{BRANCO}		{imprimir("Espaco em branco ", yytext());}
-{SOMA}			{imprimir("Operador de soma ", yytext());}
-{SUBTRAI}		{imprimir("Operador de subtracao", yytext());}
-{MULTI}			{imprimir("Operador de multiplicacao", yytext());}
-{DIVID}			{imprimir("Operador de divisao", yytext());}
-{DECIMAL}		{imprimir("Numero decimal ", yytext());} 
-{NUMERO_EXPOENTE} {imprimir("Numero com Expoente ", yytext());} 
-{INTEIRO}		{imprimir("Numero inteiro ", yytext());}
-{LEFT_PAREN}	{imprimir("Parenteses a esquerda ", yytext());}
-{RIGHT_PAREN}	{imprimir("Parenteses a direita ", yytext());}
+{BRANCO}		    {imprimir("Next lexeme is: Espaco, Next token is: em branco ", yytext());}
+{ADD_OP}			{imprimir("Next lexeme is: +, Next token is: 21", yytext());}
+{SUB_OP}		    {imprimir("Next lexeme is: -, Next token is: 22", yytext());}
+{MULT_OP}			{imprimir("Next lexeme is: *, Next token is: 23", yytext());}
+{DIV_OP}			{imprimir("Next lexeme is: /, Next token is: 24", yytext());}
+{ASSIGN_OP}			{imprimir("Next lexeme is: =, Next token is: 20", yytext());}
+{DECIMAL}		    {imprimir("Next lexeme is: DECIMAL, Next token is:  X", yytext());} 
+{LETTER}		    {imprimir("Next lexeme is: LETTER, Next token is:  0", yytext());} 
+{NUMERO_EXPOENTE}   {imprimir("Next lexeme is: ^, Next token is: X", yytext());} 
+{INT_LIT}		    {imprimir("Next lexeme is: INT_LIT, Next token is:  10", yytext());}
+{LEFT_PAREN}	    {imprimir("Next lexeme is: (, Next token is: 25 ", yytext());}
+{RIGHT_PAREN}	    {imprimir("Next lexeme is: ), Next token is: 26 ", yytext());}
 <<EOF>> {
     System.out.println("Fim do arquivo alcançado.");
     yyclose(); 

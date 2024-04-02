@@ -14,7 +14,9 @@ public class Main {
         jflex.Main.main(file);
 
         String file2[] = { rootPath + subPath + "scanner2.lex" };
+
         jflex.Main.main(file2);
+
     }
 
 }

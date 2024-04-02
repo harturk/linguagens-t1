@@ -26,8 +26,8 @@ NUMERO_EXPOENTE = {INTEIRO}"^"{DIGITO}+
 %%
 
 
-"if"			{imprimir("IF_PAL,20", yytext());}
-"then"			{imprimir("THEN_PAL,21", yytext());}
+"for"			{imprimir("FOR_PAL,20", yytext());}
+"if"			{imprimir("IF_PAL,21", yytext());}
 "else"			{imprimir("ELSE_PAL,22", yytext());}
 "while"         {imprimir("WHILE_PAL,23", yytext());}
 "do"            {imprimir("DO_PAL,24", yytext());}

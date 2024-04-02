@@ -26,13 +26,14 @@ NUMERO_EXPOENTE = {INTEIRO}"^"{DIGITO}+
 %%
 
 
-"if"			{imprimir("Palavra reservada", yytext());}
-"then"			{imprimir("Palavra reservada", yytext());}
-"while"         {imprimir("Palavra reservada", yytext());}
-"do"            {imprimir("Palavra reservada", yytext());}
-"switch"        {imprimir("Palavra reservada", yytext());}
-"int"           {imprimir("Palavra reservada", yytext());}
-"float"         {imprimir("Palavra reservada", yytext());}
+"if"			{imprimir("IF_PAL,20", yytext());}
+"then"			{imprimir("THEN_PAL,21", yytext());}
+"else"			{imprimir("ELSE_PAL,22", yytext());}
+"while"         {imprimir("WHILE_PAL,23", yytext());}
+"do"            {imprimir("DO_PAL,24", yytext());}
+"int"           {imprimir("INT_PAL,25", yytext());}
+"float"         {imprimir("FLOAT_PAL,26", yytext());}
+"switch"        {imprimir("SWITCH_PAL,27", yytext());}
 {BRANCO}		{imprimir("Espaco em branco ", yytext());}
 {SOMA}			{imprimir("Operador de soma ", yytext());}
 {SUBTRAI}		{imprimir("Operador de subtracao", yytext());}

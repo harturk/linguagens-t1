@@ -9,10 +9,12 @@ public class Main {
         String rootPath = Paths.get("").toAbsolutePath().toString();
         String subPath = "/src/main/java/application/";
 
-        String file[] = { rootPath + subPath + "scanner2.lex" };
+        String file[] = { rootPath + subPath + "scanner.lex" };
 
         jflex.Main.main(file);
 
+        String file2[] = { rootPath + subPath + "scanner2.lex" };
+        jflex.Main.main(file2);
     }
 
 }

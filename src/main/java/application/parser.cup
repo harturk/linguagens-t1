@@ -1,0 +1,35 @@
+/*Documentação: http://www2.cs.tum.edu/projects/cup/*/
+import java_cup.runtime.*;
+
+parser code {:
+    Scanner s;
+    Parser(Scanner s){ this.s=s; }
+
+    java.util.Map<String, Integer> simbolos = new java.util.HashMap<String, Integer>();
+:}
+
+init with {:  :};
+scan with {: return s.next_token(); :};
+
+terminal            SEMI, MAIS, MENOS, VEZES, MENOSUNIT, LPAREN, RPAREN, ID, ATRIB;
+terminal Integer    NUMERO;        
+
+non terminal            inicio;
+non terminal Integer    exp;      // utilizado para armazenar as subexpressões avaliadas
+
+precedence left MAIS, MENOS;
+precedence left VEZES;
+
+inicio ::=   inicio exp:e SEMI       {: System.out.println(e);         :}
+           | exp:e SEMI              {: System.out.println(e);         :}
+;
+
+exp ::=   exp:e1 MAIS  exp:e2        {: RESULT = e1+e2;                :}
+        | exp:e1 MENOS exp:e2        {: RESULT = e1-e2;                :}
+        | exp:e1 VEZES exp:e2        {: RESULT = e1*e2;                :}
+        | MENOS exp:e                {: RESULT = -e;                   :}
+        | LPAREN exp:e RPAREN	     {: RESULT = e;                    :}
+        | NUMERO:n                   {: RESULT = n;                    :}
+        | ID:i	                     {: RESULT = simbolos.get(i);      :}
+        | ID:i ATRIB exp:e           {: simbolos.put(i.toString(), e);  :}
+;

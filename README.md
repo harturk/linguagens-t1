@@ -2,6 +2,8 @@
 
 ### maven
 
+### bash
+
 ## Rodando
 
 ### make build

@@ -1,6 +1,7 @@
-/*Documentação: http://www2.cs.tum.edu/projects/cup/*/
+package application;
 import java_cup.runtime.*;
 
+/*Documentação: http://www2.cs.tum.edu/projects/cup/*/
 parser code {:
     Scanner s;
     Parser(Scanner s){ this.s=s; }

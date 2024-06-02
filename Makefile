@@ -8,6 +8,7 @@ F_OUTPUT_SCANNER = Scanner
 JAR_FILE = ./target/linguagens-t1-1.0.1-jar-with-dependencies.jar
 RM = rm
 MV = mv
+ARG = ./input/entrada.txt
 
 build:
 	java -jar ./lib/jflex.jar ${DIR}scanner.flex
@@ -19,7 +20,7 @@ package:
 	mvn package
 
 run:
-	java -jar ${JAR_FILE} /mnt/h/projects/current/PUCRS/linguagens/jcup-t2/input/entrada.txt
+	java -jar ${JAR_FILE} ${ARG}
 
 clean:
 	${RM} ${DIR}${C_OUTPUT_PARSER}.java

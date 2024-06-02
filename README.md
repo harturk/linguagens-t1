@@ -1,15 +1,17 @@
 ## Requisitos
 
-### maven
+[1]. maven
 
-### bash
+[2]. bash
 
 ## Rodando
 
-### make build
+[1]. make build
 
-### make package
+[2]. make package
 
-### make run ARG="PATH_PARA_ARQUIVO_TESTE"
+[3]. make run ARG="PATH_PARA_ARQUIVO_TESTE"
 
-### make run (utilizara ./input/entrada.txt como default)
+### OU
+
+[3]. make run (utilizara ./input/entrada.txt como default)

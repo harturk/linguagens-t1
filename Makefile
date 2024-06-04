@@ -15,6 +15,7 @@ build:
 	java -jar ./lib/jcup.jar -parser ${C_OUTPUT_PARSER} -symbols ${C_OUTPUT_TOKENS} ${DIR}parser.cup
 	mv ./Parser.java ${DIR}
 	mv ./Tokens.java ${DIR}
+	mvn package
 
 package:
 	mvn package

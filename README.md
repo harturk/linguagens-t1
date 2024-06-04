@@ -1,3 +1,5 @@
+### Alunos: Hártur Mainardi, Roberto Neto, Vitor Jacom
+
 ## Requisitos
 
 [1]. maven
@@ -8,10 +10,8 @@
 
 [1]. make build
 
-[2]. make package
-
-[3]. make run ARG="PATH_PARA_ARQUIVO_TESTE"
+[2]. make run ARG="PATH_PARA_ARQUIVO_TESTE"
 
 ### OU
 
-[3]. make run (utilizara ./input/entrada.txt como default)
+[2]. make run (utilizara ./input/entrada.txt como default)
